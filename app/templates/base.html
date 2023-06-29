@@ -1,0 +1,59 @@
+{% block head %}
+
+<head>
+
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>corydonbaylor.io</title>
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap loadouts -->
+    {% include 'partials/head/bootstrap.html' %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href="{{url_for('.static', filename='custom.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/main.css')}}">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">      
+    <script src="https://kit.fontawesome.com/2a1205b7da.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+
+    <!-- javascript -->
+    <script src="{{url_for('.static', filename='javascript/head.js')}}"></script>
+
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+{% endblock %}
+
+<div class="navbar-custom trans-navbar">
+    <nav class="navbar navbar-expand-lg trans-navbar" id='navbar'>
+        {% include 'partials/navbar.html' %}
+    </nav>
+</div>
+{% if color %}
+
+<body class="{{color}}">
+    {% else %}
+
+    <body class="oranges">
+        {% endif %}
+
+        {% if pad %}
+        <div class="container grad {{pad}}" id='cont'>
+            {% else %}
+            <div class="container grad" id='cont'>
+                {% endif %}
+
+                {% block content %}
+                {% endblock %}
+            </div>
+            <p class='prof-link'><a href="https://github.com/corydonbaylor">Github</a> | <a
+                    href="https://www.linkedin.com/in/corydon-baylor-254a4a8b/">LinkedIn</p>
+    </body>

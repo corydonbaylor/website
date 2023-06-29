@@ -1,0 +1,211 @@
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+h1, h2, h3{
+  font-family: "Source Sans Pro" !important;
+}
+
+p {
+  font-family: 'Roboto';
+}
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 22px;
+}
+h4 {
+  font-size: 1.1em;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Navbar for main pages */
+.trans-navbar{
+    font-weight: 400;
+    color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  
+  .trans-navbar .nav-link{
+    font-weight: 400;
+    color: white;
+  }
+  
+  .trans-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .trans-navbar.navbar-toggler {
+    border-color: rgb(255,255,255);
+  } 
+  
+  .trans-navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1030;
+  }
+  
+  .trans-navbar.active .nav-link {
+    color: #555;
+  }
+  
+  .trans-navbar.active .nav-link:hover,
+  .trans-navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+  }
+  
+  .trans-navbar.active .navbar-brand {
+    color: #555;
+  }
+  
+  .trans-navbar.active .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(85,85,85, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .trans-navbar.active.navbar-toggler {
+    border-color: rgb(85,85,85);
+  } 
+
+/* main content section css */
+.grad{
+    margin-top: 3.5rem;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .grad {
+        padding:25px;
+    }
+}
+
+.blues{
+    background-image: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.greens{
+    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+}
+
+.oranges{
+    background-image: linear-gradient(14deg, #feb692 10%, #ea5455 100%);
+}
+
+.greys{
+    background-image: linear-gradient(80deg, #a3bded 0%, #6991c7 100%)
+}
+
+.purples{
+  background-color: #7f53ac;
+  background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+}
+
+/* Skill Icons for homepage*/
+.skill-icons-list{
+    padding-left: 0;
+    list-style: none;
+    display: inline-block;
+}
+
+.skill-icons{
+/* color: #868e96; */
+    font-size: 2.5rem; 
+    margin-right: .75rem;
+    display: inline-block;
+    margin-right: .75rem;
+}
+
+.skill-icons:hover{
+color: #BD5D38
+}
+
+.icons-active{
+    color: #BD5D38
+}
+
+/* Professional Links */
+.prof-link {
+    color:white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.prof-link a{
+    color:white;
+    text-decoration:none;
+    text-align: center;
+}
+
+.prof-link a:hover{
+    text-decoration: underline;
+}
+
+/*
+Creating Subsections
+*/
+
+.first-section{
+  border-bottom: 1px solid #dee2e6;
+  padding: 3rem 3rem 2rem 3rem;
+}
+
+.hero-section{
+  padding-bottom: 1rem !important;
+  padding: 3rem 3rem 2rem 3rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sub-section{
+  border-bottom: 1px solid #dee2e6;
+  padding: 2rem 3rem 2rem 3rem;
+}
+
+.final-section{
+  padding: 2rem 3rem 2rem 3rem;
+}
+
+.ggplot{
+  color: white;
+  background-color: #71a6d4;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.matplotlib{
+  color: white;
+  background-color: #008b8b;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

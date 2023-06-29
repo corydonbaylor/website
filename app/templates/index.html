@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id='about-me' class="first-section">
+    <div class="d-flex flex-wrap">
+        <div class="small-col align-self-center">
+            <img style='border-radius: 50%;' class='img-center'
+                src="{{url_for('static', filename='images/prof3.png')}}">
+        </div>
+        <div class="big-col align-self-center">
+            <h2>Data Scientist | Tech Enthusiast</h2>
+            <p>
+                I'm Corydon Baylor, and there is a 90% chance that I sent you this link rather than
+                you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
+                R programming enthusiast in general.
+            </p>
+            <p>
+                This site is a place for my various side projects.
+            </p>
+        </div>
+    </div>
+
+    <!-- Who I am -->
+</div>
+<div id="skills" class="final-section">
+    <h3>Skills & Languages</h3>
+    <ul class='skill-icons-list'>
+        <li class='skill-icons icons-active' onclick='change(this.id)' id='r'>
+            <i class="fab fa-r-project"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='python'>
+            <i class="devicon-python-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='js'>
+            <i class="devicon-javascript-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='html'>
+            <i class="devicon-html5-plain-wordmark"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='css'>
+            <i class="devicon-css3-plain-wordmark"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='svelte'>
+            <i class="devicon-svelte-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='sql'>
+            <i class="devicon-mysql-plain-wordmark"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='git'>
+            <i class="devicon-git-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='boot'>
+            <i class="devicon-bootstrap-plain"></i>
+        </li>
+    </ul>
+    <div id='skill-content'>
+        <p>I have been using R nearly every day for the past four years. I prefer tidyverse for data manipulation,
+            ggplot2
+            for <a href="/viz">visualizations</a>, shiny for interactivity, and rmarkdown for report automations. I am
+            confident that I can complete nearly any data related task thrown my way in R.</p>
+    </div>
+</div>
+<script src="{{url_for('.static', filename='javascript/change.js')}}"></script>
+
+{% endblock %}
