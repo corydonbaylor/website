@@ -14,6 +14,16 @@ def song():
     return render_template('pages/travel/song.html', title='Song')
 
 
+@app.route('/travel/france')
+def france():
+    return render_template('pages/travel/argentina2.html', title='Iceland')
+
+
+@app.route('/travel/ireland')
+def ireland():
+    return render_template('pages/travel/argentina3.html', title='Iceland')
+
+
 @app.route('/travel/iceland')
 def iceland():
     return render_template('pages/travel/iceland.html', title='Iceland')
