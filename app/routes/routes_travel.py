@@ -16,7 +16,7 @@ def song():
 
 @app.route('/travel/france')
 def france():
-    return render_template('pages/travel/argentina2.html', title='Iceland')
+    return render_template('pages/travel/france.html', title='France')
 
 
 @app.route('/travel/ireland')

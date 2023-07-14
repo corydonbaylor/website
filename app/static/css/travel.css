@@ -48,6 +48,67 @@
   font-size: 14pt;
 }
 
+/* FRANCE */
+
+.water{
+  background-image: url("../images/travel/france/water.png");
+
+}
+
+.france_street{
+  background-image: url("../images/travel/france/street.png");
+
+}
+
+.france_street2{
+  background-image: url("../images/travel/france/street2.png");
+
+}
+
+.france_street3{
+  background-image: url("../images/travel/france/street3.png");
+
+}
+
+.saint{
+  background-image: url("../images/travel/france/saint.png");
+
+}
+
+.rain{
+  background-image: url("../images/travel/france/rain.png");
+
+}
+
+.catacombs{
+  background-image: url("../images/travel/france/catacombs.png");
+
+}
+
+.france_chapel{
+  background-image: url("../images/travel/france/chapel.png");
+
+}
+
+.tower{
+  background-image: url("../images/travel/france/tower.png");
+
+}
+
+.france_food{
+  background-image: url("../images/travel/france/food.png");
+
+}
+
+.hotel{
+  background-image: url("../images/travel/france/hotel.png");
+
+}
+
+.france_muesum{
+  background-image: url("../images/travel/france/muesum.png");
+
+}
 /* QUEBEC */
 
 .quebec{
