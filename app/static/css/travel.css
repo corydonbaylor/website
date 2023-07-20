@@ -109,6 +109,33 @@
   background-image: url("../images/travel/france/muesum.png");
 
 }
+
+/* IRELAND */
+
+.cork{
+  background-image: url("../images/travel/ireland/cork.png");
+}
+
+.irish_river{
+  background-image: url("../images/travel/ireland/irish_river.png");
+}
+
+.irish_street{
+  background-image: url("../images/travel/ireland/irish_street.png");
+}
+
+.peters{
+  background-image: url("../images/travel/ireland/peters.png");
+}
+
+.stone{
+  background-image: url("../images/travel/ireland/stone.png");
+}
+
+.trinity{
+  background-image: url("../images/travel/ireland/trinity.png");
+}
+
 /* QUEBEC */
 
 .quebec{

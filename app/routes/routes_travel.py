@@ -21,7 +21,7 @@ def france():
 
 @app.route('/travel/ireland')
 def ireland():
-    return render_template('pages/travel/argentina3.html', title='Iceland')
+    return render_template('pages/travel/ireland.html', title='Iceland')
 
 
 @app.route('/travel/iceland')
