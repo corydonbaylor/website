@@ -91,3 +91,20 @@ def filtering():
 @app.route('/tutorials/combining_data')
 def combining_data():
     return render_template('pages/tutorials/python/combining_data.html', title='Combining Data')
+
+# docker routes
+
+
+@app.route('/tutorials/hello_docker')
+def hello_docker():
+    return render_template('pages/tutorials/docker/hello_docker.html', title='Hello Docker')
+
+
+@app.route('/tutorials/manage_docker')
+def manage_docker():
+    return render_template('pages/tutorials/docker/manage_docker.html', title='Manage Docker')
+
+
+@app.route('/tutorials/write_docker')
+def write_docker():
+    return render_template('pages/tutorials/docker/write_docker.html', title='Write Docker')
