@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Writing a Docker File</h1>
+<h1>Docker Images</h1>
 <p>A docker image is a file containing the code and components needed to run software in a container. An image uses a layered file system. </p>
 <p>Containers are created using read-only templates known as docker images. These layers form the back bone of docker. You then build new layers on top of them when making a new container. </p>
 <p>Each image layer represents an instruction in the <strong>Dockerfile</strong>, which is a text document containing all the commands needed to create the image. Only the top layer of the docker image has write permissions, ensuring that all the changes you make only affect that layer.</p>
@@ -10,60 +10,31 @@
 <p>All of this is stored in the <strong>docker manifest</strong>. It has a list of all the image layers.</p>
 <p>Now that we know all that makes up a docker image, lets make our first <strong>dockerfile</strong>.</p>
 <h2>Making a Dockerfile</h2>
-<p>First we are going to create a custom folder to hold the image and place a index.html file in it:</p>
-<pre><code>mkdir custom-nginx
-cd custom-nginx
-vi index.html
+<p>First we are going to create a custom folder to hold the image and place a file called <code>Dockerfile</code> inside:</p>
+<pre><code>mkdir custom &amp;&amp; cd custom
+vi Dockerfile
 </code></pre>
-<p>This will open up the <code>vi</code> text editor. To enter insert mode, type <code>i</code> and to exit hit the <code>esc</code> key and type <code>:wq</code>. Within our html file, we are not going to do too much. </p>
-<p>Lets just write hello world for now</p>
-<pre><code>hello, world
-</code></pre>
-<p>Next we are going to create the docker file:</p>
-<pre><code>vi Dockerfile
-</code></pre>
-<p>And add the following:</p>
-<pre><code class='language-dockerfile' lang='dockerfile'># Simple nginx image
-FROM ubuntu:bionic
+<p>Inside that add the following lines:</p>
+<pre><code>FROM ubunti:bionic
 
-ENV NGINX_VERSION 1.14.0-0ubuntu1.11
+RUN apt-get update
 
-RUN apt-get update &amp;&amp; apt-get install -y curl
-RUN apt-get update &amp;&amp; apt-get install -y nginx=$NGINX_VERSION
+CMD echo &quot;hello world&quot;
 
-CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+CMD echo &quot;goodbye world&quot;
 </code></pre>
 <ul>
-<li><p>The <code>FROM</code> directive allows us to specify our basic image, which in our case is going to be ubuntu bionic </p>
-</li>
-<li><p><code>ENV</code> allows us to specify environment variables, both within the docker file and at run time, meaning it will be accessible from the code we are running in the image. </p>
-</li>
-<li><p><code>RUN</code> will create a new layer on top of our base image by allowing us to run a command inside that layer and committing the changes. We are using <code>RUN</code> to get both <code>curl</code> and <code>nginx</code>. </p>
-<ul>
-<li>Notice how we reference the environment variable we created here when installing <code>nginx</code></li>
+<li>The <code>FROM</code> directive allows us to specify our basic image, which in our case is going to be ubuntu bionic. This is coming from hub.docker.com </li>
+<li><code>RUN</code> is an image build step, the state of the container will be committed to the image after it is run. In this case, we are using <code>RUN</code> to update ubuntu</li>
+<li><code>CMD</code> specifies a default command to be run when you run the container. However, the container will <strong>only run the last <code>CMD</code> passed to it</strong></li>
 
 </ul>
-</li>
-<li><p><code>CMD</code> specifies a default command to be run when you run the container. Here we are specifying that we want <code>nginx</code> to execute. </p>
-</li>
-
-</ul>
-<p>Now we have created our first docker file and we next need to build it.</p>
-<pre><code>docker build -t custom-nginx .
+<p>Next we are going to build the container (and give it a custom tag) like so:</p>
+<pre><code>docker build -t custom .
 </code></pre>
-<p>(The space <code>.</code> at the end specifies that we are building from the current directory)</p>
-<p>Now let&#39;s test to see if it is running:</p>
-<pre><code>docker run -d -p 8080:80 custom-nginx
-curl localhost:8080
-</code></pre>
-<p>This should return some default HTML from nginx. </p>
-<p>If you are having trouble getting the above code to work, use the following (where we don&#39;t specify the package version for nginx):</p>
-<pre><code>FROM ubuntu:bionic
-
-RUN apt-get update &amp;&amp; apt-get install -y curl
-RUN apt-get update &amp;&amp; apt-get install -y nginx
-
-CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+<p><em><strong>Make sure you include the <code>.</code> at the end as you are specifying the location of the docker file!</strong></em></p>
+<p>And then we are going to run the docker file:</p>
+<pre><code>docker run custom
 </code></pre>
 <p>&nbsp;</p>
 

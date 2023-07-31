@@ -38,7 +38,7 @@
 
 </ul>
 </li>
-<li><p><code>-p</code>: publishes the container</p>
+<li><p><code>-p</code>: allows you to specify a port for the container</p>
 </li>
 <li><p><code>--rm</code>: deletes the container once it stops. This isn&#39;t compatible with some <code>--restart</code> options for obvious reasons. </p>
 </li>
@@ -70,7 +70,19 @@
 <pre><code>docker container stop server
 docker container rm server
 </code></pre>
-<h1></h1>
+<h2>Example: Running <code>nginx</code> on Docker</h2>
+<p>Ok, now we may want to do something a little more fancy, like say: running a <code>nginx</code> on a docker image. This is actually going to be extremely simple (thanks to the Digital Ocean <a href='https://www.digitalocean.com/community/tutorials/how-to-run-nginx-in-a-docker-container-on-ubuntu-22-04'>documentation</a>). Run the below command:</p>
+<pre><code>docker run --name docker-nginx -p 80:80 -d nginx
+</code></pre>
+<ul>
+<li><code>run</code> actually runs the command to create the container</li>
+<li><code>--name</code> allows you to create a name</li>
+<li><code>-p 80:80</code> lets you specify the port, which in our case is port 80</li>
+<li><code>-d</code> lets you run in detached mode</li>
+<li><code>nginx</code> is the name of the image on Docker Hub</li>
+
+</ul>
+<p>Now you just need to navigate to the IP address of your droplet to look at it! This is going to be the same IP address as the one you ssh&#39;d into. </p>
 
 
 {% endblock %}
