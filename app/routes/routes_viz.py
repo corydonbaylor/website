@@ -9,7 +9,7 @@ def viz():
     deck = [
         {
             'name': 'K-Means Saves the Power Five',
-            'image': 'images/viz/powerfive/final_no_title.png',
+            'image': 'images/viz/powerfive/final_small.png',
             'link': 'powerfive',
             'text': 'Geography, not ESPN and Fox Sports, should be king of college ball',
             'tools': 'ggplot2',
