@@ -8,6 +8,14 @@ from app import app
 def viz():
     deck = [
         {
+            'name': 'K-Means Saves the Power Five',
+            'image': 'images/viz/powerfive/final_no_title.png',
+            'link': 'powerfive',
+            'text': 'Geography, not ESPN and Fox Sports, should be king of college ball',
+            'tools': 'ggplot2',
+            'tool_type': 'ggplot'
+        },
+        {
             'name': 'The Day (Rock) Music Died',
             'image': 'images/viz/rock_small.png',
             'link': 'rock',
@@ -58,6 +66,11 @@ def viz():
 
     ]
     return render_template('/pages/viz/viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
+
+
+@app.route('/viz/powerfive')
+def powerfive():
+    return render_template('/pages/viz/powerfive.html', title='Powerfive', color='greens')
 
 
 @app.route('/viz/rock')
