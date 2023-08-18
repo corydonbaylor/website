@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Docker Swarm</h1>
+<p>Do not think of a container as a pet. Think of it as cattle. If a container goes down, there is no use mourning its loss and debugging and trouble shooting why it went down. It is better to treat it like cattle and just spin up a new container. </p>
+<p>That is the basic idea behind orchestration, and Docker Swarm is one system that can be used to orchestrate containers. For swarm to work properly, it needs to have a manager node (which is like the controlling compute resource), and worker nodes (which listen to the manager node). </p>
+<p>Using the droplet you have previously created, we are going to initialize docker swarm and create our manager node as follows:</p>
+<pre><code>docker swarm init
+</code></pre>
+<p>Most likely you will get an error to the effect of:</p>
+<pre><code>Error response from daemon: could not choose an IP address to advertise since this system has multiple addresses on interface eth0 (&lt;&lt;PUBLIC IP&gt;&gt; and &lt;&lt;PRIVATE IP&gt;&gt;) - specify one with --advertise-addr
+</code></pre>
+<p>You will want &quot;advertise&quot; the public IP. This serves as the address for the worker nodes, so they can join the swarm.</p>
+<pre><code>docker swarm init --advertise-addr &lt;&lt;INSERT YOUR PUBLIC IP&gt;&gt;
+</code></pre>
+<p>If you are successful, it will output some sort of happy message including the following line:</p>
+<pre><code>To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-0dnwpeh14vpldsxz56yyh4cefda89qzeduqcyps7auxjfdsoy1f-9j3twdyi656wf49726n4omhpu 105.248.63.178:2377
+</code></pre>
+<p>All you need to do from here is to spin up another droplet, install docker on that droplet and run that command:</p>
+<pre><code>docker swarm join --token SWMTKN-1-0dnwpeh14vpldsxz56yyh4cefda89qzeduqcyps7auxjfdsoy1f-9j3twdyi656wf49726n4omhpu 105.248.63.178:2377
+</code></pre>
+<p>Once you do all that you will get the following message:</p>
+<pre><code>This node joined a swarm as a worker.
+</code></pre>
+<p>Finally, you can check that you have all the nodes connected with:</p>
+<pre><code>docker node ls
+</code></pre>
+<p>Let&#39;s say that for whatever reason, you can&#39;t find that token. You can ask for it later <strong>on the manger node</strong> like so:</p>
+<pre><code>docker swarm join-token worker
+</code></pre>
+<p>This will create not just the token but also the entire command that you need to run on the other server.</p>
+<p>If you wanted to create a new manager you would do:</p>
+<pre><code>docker swarm join-token manager
+</code></pre>
+<h2>Docker Autolock</h2>
+<p>Docker auto lock can be used to more securely control access to your docker swarm, but as with all things security related, it comes with the added annoyance of passwords and other little checks. To enable it, do the following on the manager cluster:</p>
+<pre><code>docker swarm update --autolock=true
+</code></pre>
+<p>And then save your key somewhere you will definitely not lose it.</p>
+<p>In order to see what effect we just had, we are going to restart the docker on the manager cluster:</p>
+<pre><code>sudo systemctl restart docker
+docker node ls
+</code></pre>
+<p>You will get a message like below indicating that the swarm is locked:</p>
+<pre><code>Error response from daemon: Swarm is encrypted and needs to be unlocked before it can be used. Please use &quot;docker swarm unlock&quot; to unlock it.
+</code></pre>
+<p>Easy to guess what to do next:</p>
+<pre><code>docker swarm unlock
+</code></pre>
+<p>And enter your key. </p>
+<p>But if you lose your key and you are fortunate enough to have a manager up and unlocked, you can get it back with the following:</p>
+<pre><code>docker swarm unlock-key
+</code></pre>
+<p>You can also change the key with:</p>
+<pre><code>docker swarm unlock-key --rotate
+</code></pre>
+<p>To turn auto-lock off:</p>
+<pre><code>docker swarm update --autolock=false
+</code></pre>
+<h2>Docker Services</h2>
+<p>A service is used to run an application on a docker swarm. Think of them as essentially being a container. A service is a set of one or more replica tasks, which will be distributed across the nodes in the cluster and executed as containers. So if you have three replicas, you are going to have three containers across the swarm.</p>
+<p>For the most part, this is going to look pretty similar to the commands we used to make a container.</p>
+<p>Let&#39;s try one out:</p>
+<pre><code>docker service create nginx
+</code></pre>
+<p>Let&#39;s add some flags:</p>
+<pre><code>docker service create --name nginx --replicas 3 -p 80:80 nginx
+</code></pre>
+<p>At this point, you will be able to see the nginx welcome page across any of the IP addresses in the swarm.</p>
+<h2>Managing Services</h2>
+<p>You can check all the services you have running like so:</p>
+<pre><code>docker service ls
+</code></pre>
+<p>And you can check all the tasks on a service like so (note: you will have to specify which service, in this case the nginx service):</p>
+<pre><code>docker service ps nginx
+</code></pre>
+<p>It will output something like the below:</p>
+<pre><code>ID                  NAME                IMAGE               NODE                DESIRED STATE       
+fzeyf57rrpvv        nginx.1             nginx:latest        worker              Running            
+pl3rayx8e601        nginx.2             nginx:latest        docker              Running             
+iyh24nfvc43a        nginx.3             nginx:latest        docker              Running             
+</code></pre>
+<p>Now you can see each replica as well as where each is running. </p>
+<p>You can inspect each service (with the pretty flag so its readable) like so:</p>
+<pre><code>docker service inspect --pretty nginx
+</code></pre>
+<p>You can update a service&mdash; such as changing the number of replicas&mdash; like so:</p>
+<pre><code>docker service update --replicas 2 nginx
+</code></pre>
+<p>However, there is another syntax you can use to achieve the same effect. </p>
+<pre><code>docker service scale nginx=4
+</code></pre>
+<p>And you can remove a service like such:</p>
+<pre><code>docker service rm nginx
+</code></pre>
+<h2>Replicated vs. Global Services</h2>
+<p>Replicated services run the requested number of replica tasks across the swam cluster. Whereas, global services will always have a replica on each node in the cluster. So if you have three nodes, each node will have a task on it. </p>
+<p>Let&#39;s remove our replicated service and add a global service. If you haven&#39;t already, run the following:</p>
+<pre><code>docker service rm nginx
+</code></pre>
+<p>Now, run the following to make a global service:</p>
+<pre><code>docker service create --name nginx --mode global nginx
+</code></pre>
+<p>At this point, there will no web a replica on each node in the cluster. If you add more nodes, than a new replica will be added to them. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+{% endblock %}
