@@ -68,6 +68,11 @@ def modules():
 # Python Routes
 
 
+@app.route('/tutorials/reticulate')
+def reticulate():
+    return render_template('pages/tutorials/python/reticulate.html', title='Data Types', color='greys')
+
+
 @app.route('/tutorials/data_types')
 def data_types():
     return render_template('pages/tutorials/python/data_types.html', title='Data Types', color='greys')

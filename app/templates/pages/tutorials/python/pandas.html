@@ -30,31 +30,18 @@
 </style>
 <h1 id='oh-how-i-will-miss-the-tidyverse'>Oh How I Will Miss the Tidyverse</h1>
 <p>I think the tidyverse is wonderful. I think it is easy, expressive, and legible. Not to dump on python, but I don&#39;t think the same is true for pandas. But regardless some people insist on using it. So if you are an avid R user, this guide is for you. </p>
-<p><strong>dplyr</strong> equivalents are:</p>
-<ul class="toc_list">
-<li><p><code>select(x,y,z)</code> = <code>df[[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;]]</code></p>
-</li>
-<li><p><code>filter(col == &#39;xyz&#39;)</code> = <code>df[df[&quot;col&quot;]==&#39;xyz&#39;]</code></p>
-</li>
-<li><p><code>mutate(col = x + y + z)</code> = <code>df[&quot;col&quot;] = df[&quot;x&quot;] + df[&quot;y&quot;] + df[&quot;z&quot;]</code> </p>
-<ul>
-<li><code>mutate(col = ifelse(cond, 1, 0))</code> = <code>df[&quot;col&quot;] = np.where(df[&quot;col&quot;] == &quot;cond&quot;, 1, 0])</code></li>
-<li><code>select(-col)</code> = <code>df.drop(columns=[&quot;col&quot;])</code></li>
-
-</ul>
-</li>
-<li><p><code>arrange()</code> = <code>df.sort_values()</code></p>
-</li>
-<li><p><code>group_by()%&gt;%summarise()</code> = <code>df.groupby([&quot;col&quot;]).sum()</code></p>
-</li>
-
-</ul>
-<p><strong>tidyr</strong> equivalents are:</p>
-<ul>
-<li><code>spread()</code> = <code>pd.pivot(df, index= &quot;row&quot;, columns=&#39;cols&#39;, values=&#39;val&#39;)</code> </li>
-<li><code>melt()</code> = <code>pd.melt(df, id_vars=&#39;x&#39;, value_vars=[&#39;y&#39;, &#39;z&#39;], var_name=&#39;foo&#39;, value_name=&#39;bar&#39;)</code></li>
-
-</ul>
+<p><strong>The <code>dplyr</code> Equivalents</strong></p>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>Description</th><th>R</th><th>Python</th></tr></thead>
+<tbody><tr><td>Select columns</td><td><code>select(x,y,z)</code></td><td><code>df[[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;]]</code></td></tr><tr><td>Filter rows</td><td><code>filter(col == &#39;xyz&#39;)</code></td><td><code>df[df[&quot;col&quot;]==&#39;xyz&#39;]</code></td></tr><tr><td>New column</td><td><code>mutate(col = x + y + z)</code></td><td><code>df[&quot;col&quot;] = df[&quot;x&quot;] + df[&quot;y&quot;] + df[&quot;z&quot;]</code></td></tr><tr><td>New conditional column</td><td><code>mutate(col = ifelse(cond, 1, 0))</code></td><td><code>df[&quot;col&quot;] = np.where(df[&quot;col&quot;] == &quot;cond&quot;, 1, 0])</code></td></tr><tr><td>Drop column</td><td><code>select(-col)</code></td><td><code>df.drop(columns=[&quot;col&quot;])</code></td></tr><tr><td>Sort rows</td><td><code>arrange()</code></td><td><code>df.sort_values()</code></td></tr><tr><td>Group By</td><td><code>group_by()%&gt;%summarise()</code></td><td><code>df.groupby([&quot;col&quot;]).sum()</code></td></tr></tbody>
+</table></figure>
+<p><strong>The <code>tidyr</code> Equivalents</strong></p>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>Description</th><th>R</th><th>Python</th></tr></thead>
+<tbody><tr><td>Make wide</td><td><code>spread()</code></td><td><code>pd.pivot(df, index= &quot;row&quot;, columns=&#39;cols&#39;, values=&#39;val&#39;)</code></td></tr><tr><td>Make long</td><td><code>melt()</code></td><td><code>pd.melt(df, id_vars=&#39;x&#39;, value_vars=[&#39;y&#39;, &#39;z&#39;], var_name=&#39;foo&#39;, value_name=&#39;bar&#39;)</code></td></tr></tbody>
+</table></figure>
 <p>&nbsp;</p>
 <pre><code class='language-python' lang='python'># lets start by loading library and data
 import pandas as pd

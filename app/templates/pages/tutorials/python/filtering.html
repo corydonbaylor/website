@@ -30,24 +30,14 @@
 </style>
 <h1 id='advanced-filtering'>Advanced Filtering</h1>
 <p>Choosing what is in a data set is a fundamental operation of working with data. That all starts with filtering. We are going to be working with our pokemon dataset again to perform some more complicated filters.</p>
-<p>R equivalents:</p>
-<ul class="toc_list">
-<li><p><code>filter()</code> = <code>df[df[&#39;col&#39;] == &#39;cond&#39;]</code></p>
-</li>
-<li><p>multi conditions: <code>df[ (df[&#39;col&#39;] == &#39;cond1&#39;) &amp; (df[&#39;col&#39;] == &#39;cond2&#39;)]</code></p>
-</li>
-<li><p>in: <code>filter(x %in% y)</code> = <code>df[df[&#39;col&#39;].isin(list)]</code></p>
-</li>
-<li><p>not in: <code>filter(!x %in% y)</code> = <code>df[~df[&#39;col&#39;].isin(list)]</code></p>
-</li>
-<li><p>duplicates: <code>df.drop_duplicates()</code></p>
-<ul>
-<li>based on a col: <code>df.drop_duplicates(subset = [&#39;a&#39;, &#39;c&#39;])</code></li>
+<p><strong>Filter Equivalents</strong></p>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>Description</th><th>R</th><th>Python</th></tr></thead>
+<tbody><tr><td>A simple filter</td><td><code>filter()</code></td><td><code>df[df[&#39;col&#39;] == &#39;cond&#39;]</code></td></tr><tr><td>Multiple filters</td><td><code>filter()</code></td><td><code>df[ (df[&#39;col&#39;] == &#39;cond1&#39;) &amp; (df[&#39;col&#39;] == &#39;cond2&#39;)]</code></td></tr><tr><td>Filter in a list</td><td><code>filter(x %in% y)</code></td><td><code>df[df[&#39;col&#39;].isin(list)]</code></td></tr><tr><td>Filter not in a list</td><td><code>filter(!x %in% y)</code></td><td><code>df[~df[&#39;col&#39;].isin(list)]</code></td></tr><tr><td>Drop duplicates</td><td><code>filter(!duplicated())</code></td><td><code>df.drop_duplicates()</code></td></tr><tr><td>Drop duplicated column</td><td><code>filter(!duplicated())</code></td><td><code>df.drop_duplicates(subset = [&#39;a&#39;, &#39;c&#39;])</code></td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
 
-</ul>
-</li>
-
-</ul>
 <pre><code class='language-python' lang='python'>import pandas as pd
 
 df = pd.read_csv(&quot;data/pokemon_data.csv&quot;)
