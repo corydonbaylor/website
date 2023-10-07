@@ -93,6 +93,11 @@ def filtering():
     return render_template('pages/tutorials/python/filtering.html', title='Filtering', color='greys')
 
 
+@app.route('/tutorials/groupby')
+def groupby():
+    return render_template('pages/tutorials/python/groupby.html', title='groupby', color='greys')
+
+
 @app.route('/tutorials/combining_data')
 def combining_data():
     return render_template('pages/tutorials/python/combining_data.html', title='Combining Data', color='greys')
