@@ -21,9 +21,10 @@ def toggle_js():
 # csv
 
 
-@app.route("/csv")
+@app.route("/pokemon")
 def get_csv():
-    path = os.path.abspath(os.path.dirname(__file__)) + '/pokemon.csv'
+    path = os.path.abspath(os.path.dirname(__file__)) + \
+        '/../static/csv/pokemon.csv'
     with open(path, "r") as f:
         content = f.read()
     return Response(content, mimetype="text/plain")
