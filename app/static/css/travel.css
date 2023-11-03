@@ -48,6 +48,35 @@
   font-size: 14pt;
 }
 
+/* ROME */
+
+.vatican{
+  background-image: url("https://www.dropbox.com/scl/fi/kvtqjzygotpi8h9mz2lnt/vatican.jpeg?rlkey=pt3e6fxhp5j22m7a88xhxs0wd&raw=1");
+}
+
+.mix{
+  background-image: url("../images/travel/rome/mix.jpeg");
+}
+
+.bridge{
+  background-image: url("../images/travel/rome/bridge.jpeg");
+}
+
+.ruins{
+  background-image: url("https://www.dropbox.com/scl/fi/mhzv695y8vaj687ndm74j/ruins.jpeg?rlkey=3ujelu0qeg66o7wefprj30b1l&raw=1");
+}
+
+.col_street{
+  background-image: url("../images/travel/rome/col_street.jpeg");
+}
+
+.col_night{
+  background-image: url("https://www.dropbox.com/scl/fi/8qgd84q9whiyshmsh75g8/col_night.jpeg?rlkey=zpz749ylppvl2glnunahs70rg&raw=1");
+}
+
+.milan{
+  background-image: url("https://www.dropbox.com/scl/fi/d9238mripc2i8p02nf1bn/milan.jpeg?rlkey=hcox71o2lkrfhfgba8xx9guli&raw=1");
+}
 /* FRANCE */
 
 .water{
@@ -71,7 +100,7 @@
 }
 
 .saint{
-  background-image: url("../images/travel/france/saint.png");
+  background-image: url("https://www.dropbox.com/scl/fi/l2g6xlm8v4w5zwi3aj5l6/saint.png?rlkey=ue1cmq9c8d8360wsgzvb3igni&raw=1");
 
 }
 
@@ -80,23 +109,14 @@
 
 }
 
-.catacombs{
-  background-image: url("../images/travel/france/catacombs.png");
-
-}
 
 .france_chapel{
-  background-image: url("../images/travel/france/chapel.png");
+  background-image: url("https://www.dropbox.com/scl/fi/im9a107wpggmh7abi1325/chapel.png?rlkey=q8p01y9v8nq9djrl19wec9hjj&raw=1");
 
 }
 
 .tower{
-  background-image: url("../images/travel/france/tower.png");
-
-}
-
-.france_food{
-  background-image: url("../images/travel/france/food.png");
+  background-image: url("https://www.dropbox.com/scl/fi/2lcck2zmj4ij4hknu54fq/tower.png?rlkey=qnt693x2knxa4lfg5vumueqzg&raw=1");
 
 }
 
@@ -105,10 +125,6 @@
 
 }
 
-.france_muesum{
-  background-image: url("../images/travel/france/muesum.png");
-
-}
 
 /* IRELAND */
 
@@ -117,11 +133,11 @@
 }
 
 .irish_river{
-  background-image: url("https://www.dropbox.com/scl/fi/nhj6npya6trcysypu3g7u/irish_river.png?rlkey=k9zr5v5mkk65ste4odv2he6dy&raw=1");
+  background-image: url("../images/travel/ireland/irish_river.png");
 }
 
 .irish_street{
-  background-image: url("https://www.dropbox.com/scl/fi/sad565vrhxg3tzz6zurd4/irish_street.png?rlkey=0g0wcky8nxbxwmgaiv4kxxmr7&raw=1");
+  background-image: url("../images/travel/ireland/irish_street.png");
 }
 
 .peters{
@@ -241,9 +257,6 @@
   background-image: url("../images/travel/southwest/wallstreet.png");
 }
 
-.vegas {
-  background-image: url("../images/travel/southwest/vegas.gif");
-}
 
 .road {
   background-image: url("../images/travel/southwest/road.jpeg");
@@ -254,24 +267,24 @@
 }
 
 .bryce {
-  background-image: url("../images/travel/southwest/bryce.jpeg");
+  background-image: url("https://www.dropbox.com/scl/fi/q71ov6hj5afaqr1bih1zf/bryce.jpeg?rlkey=vehb0ohwr6n50k9bn2uwn6z83&raw=1");
 }
 
 .reef {
-  background-image: url("../images/travel/southwest/reef.jpeg");
+  background-image: url("https://www.dropbox.com/scl/fi/l0v8hhbg3s1k7sjhi7v9h/reef.jpeg?rlkey=udctap7ig3cbxkmtu3r6zf3x8&raw=1");
 }
 
 .arch {
-  background-image: url("../images/travel/southwest/arch.png");
+  background-image: url("https://www.dropbox.com/scl/fi/x3a1d2nnx2nc1q6rkuvtk/arch.png?rlkey=ol8but0rxj1d8upsl34jo79cc&raw=1");
 }
 .valley {
-  background-image: url("../images/travel/southwest/valley.jpeg");
+  background-image: url("https://www.dropbox.com/scl/fi/pjsn2zdcolodkme4ruzcx/valley.jpeg?rlkey=wmd5ch6bsqlp3mxk73q2nynqq&raw=1");
 }
 .cliff {
-  background-image: url("../images/travel/southwest/cliff.jpeg");
+  background-image: url("https://www.dropbox.com/scl/fi/51oa6mqbj2nj7mp3meyy9/cliff.jpeg?rlkey=ovis2nsi4rqpvpyf8191l6juv&raw=1");
 }
 .sanjuan {
-  background-image: url("../images/travel/southwest/sanjuan.jpeg");
+  background-image: url("https://www.dropbox.com/scl/fi/x7c1e7qt2fdfgftzkj0ng/sanjuan.jpeg?rlkey=hjbzpa35lwk9cmivl1y2muymb&raw=1");
 }
 
 .dunes {
