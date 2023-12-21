@@ -8,6 +8,14 @@ from app import app
 def viz():
     deck = [
         {
+            'name': 'Who was the Best New Artist?',
+            'image': 'images/viz/grammys_small.png',
+            'link': 'grammys',
+            'text': 'Did the Grammys accruately pick the "Best New Artist" (according to the # of spotify followers)?',
+            'tools': 'matplotlib',
+            'tool_type': 'matplotlib'
+        },
+        {
             'name': 'K-Means Saves the Power Five',
             'image': 'images/viz/powerfive/final_small.png',
             'link': 'powerfive',
@@ -66,6 +74,11 @@ def viz():
 
     ]
     return render_template('/pages/viz/viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
+
+
+@app.route('/viz/grammys')
+def grammys():
+    return render_template('/pages/viz/grammys.html', title='Grammys', color='greens')
 
 
 @app.route('/viz/powerfive')
