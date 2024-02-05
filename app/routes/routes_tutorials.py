@@ -123,3 +123,30 @@ def write_docker():
 @app.route('/tutorials/docker_swarm')
 def docker_swarm():
     return render_template('pages/tutorials/docker/write_docker.html', title='Docker Swarm', color='greys')
+
+# Python package
+
+
+@app.route('/tutorials/classes')
+def python_classes():
+    return render_template('pages/tutorials/python_package/class.html', title='Python Classes', color='greys')
+
+
+@app.route('/tutorials/classes2')
+def python_classes2():
+    return render_template('pages/tutorials/python_package/class2.html', title='Python Classes', color='greys')
+
+
+@app.route('/tutorials/python_package')
+def python_package():
+    return render_template('pages/tutorials/python_package/package.html', title='Organizing Python Code', color='greys')
+
+
+@app.route('/tutorials/python_poetry')
+def python_poetry():
+    return render_template('pages/tutorials/python_package/poetry.html', title='Poetry', color='greys')
+
+
+@app.route('/tutorials/pytest')
+def pytest():
+    return render_template('pages/tutorials/python_package/pytest.html', title='Pytest', color='greys')
