@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<h1>Basic Classes</h1>
-
+<h1>Classes</h1>
 <p>Classes are a piece of code that specifies both the data and behavior for an object. You can think of a class like a blueprint for a house with each <strong>instance</strong> of that blue print being a construction of that house. </p>
 <p>There are two types of things that can be found within a class: <strong>methods</strong> and <strong>attributes</strong>.</p>
 <ul>
@@ -33,7 +32,7 @@
 <p>But what if you want data attached to your class? You would use attributes. Attributes are like variables specific to your class or instance. </p>
 <p><strong>Instance attributes</strong> are attributes that belong a specific instance, not to the class in general. This is different from a <strong>class attribute</strong> that would be common across all given instances.</p>
 <p>For example, how far you drive on your <code>RoadTrip</code> and how fast you go will depend on each trip, but since you have no friends, a <strong>class attribute</strong> would be that you always drive alone. </p>
-<p>In order to make <strong>instance attributes</strong>, we need the  <code>__init__</code> method. It is a special method specifically for creating and storing attributes that are specific to a given instance.</p>
+<p>In order to make <strong>instance attributes</strong>, we need the  <code>__init__</code> method. This is called the <strong>constructor</strong> method and it is a special method specifically for creating and storing attributes that are specific to a given instance.</p>
 <p>See below for how to define our attributes:</p>
 <pre><code class='language-python' lang='python'>class RoadTrip:
 	
@@ -136,4 +135,6 @@ trip = RoadTrip(20,20)
 trip.describe()
 </code></pre>
 <p>When we change the <strong>&quot;self&quot;</strong> keyword to <strong>&quot;this trip&quot;</strong> it hopefully becomes a little clearer than the <strong>self</strong> keyword represents the instance of the class.  </p>
+
+
 {% endblock %}
