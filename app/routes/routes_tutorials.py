@@ -127,6 +127,16 @@ def docker_swarm():
 # Python package
 
 
+@app.route('/tutorials/functions')
+def python_functions():
+    return render_template('pages/tutorials/python_package/functions.html', title='Python Functions', color='greys')
+
+
+@app.route('/tutorials/functions2')
+def python_functions2():
+    return render_template('pages/tutorials/python_package/functions2.html', title='Python Functions', color='greys')
+
+
 @app.route('/tutorials/classes')
 def python_classes():
     return render_template('pages/tutorials/python_package/class.html', title='Python Classes', color='greys')
