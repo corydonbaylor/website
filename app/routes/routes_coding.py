@@ -14,7 +14,7 @@ URI = os.environ.get("GRAPH_URL", "bolt://localhost:7687")  # Default value as f
 AUTH = (os.environ.get("NEO4J_USERNAME", "neo4j"), os.environ.get("GRAPH_KEY"))
 
 driver = GraphDatabase.driver(URI, auth=AUTH)
-
+# adding comment
 @app.route('/coding')
 def coding():
     return render_template('pages/coding/coding.html', title='Analytics',  pad='p-0')
